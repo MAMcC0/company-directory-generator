@@ -26,7 +26,7 @@ const init = () => {
 
             {
                 type: 'input',
-                name: 'officeNumber',
+                name: 'officeNum',
                 message: "What is the manager's Office Number?",
 
             },
@@ -94,7 +94,7 @@ const init = () => {
 
             {
                 type: 'input',
-                name: 'officeNumber',
+                name: 'github',
                 message: "What is the engineer's Github?",
 
             },
