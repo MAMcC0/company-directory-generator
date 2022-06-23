@@ -75,7 +75,50 @@ const init = () => {
             }
         })
     }
+    
+    function createEngineer (){
+        inquirer
+        .prompt (
+            [{
+                type: 'input',
+                name: 'id',
+                message: "What is the engineer's id?",
+
+            },
+            {
+                type: 'input',
+                name: 'name',
+                message: "What is the engineer's name?",
+
+            },
+
+            {
+                type: 'input',
+                name: 'officeNumber',
+                message: "What is the engineer's Github?",
+
+            },
+            ]
+        )
+        .then(answers => {
+            const engineer = new Engineer(
+                answers.id,
+                answers.name,
+                answers.email,
+                answers.github,
+            );
+            teamMemberObjArr.push(engineer)
+            addEmployees()
+        })
+
+    }
+
+ function buildTeam (){
+    fs.writeFile('./dist/index.html', renderTeam(teamMemberArr), "utf-8")
+ }
 
 
 
+
+ createManager()
 };
