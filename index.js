@@ -75,7 +75,7 @@ const init = () => {
             }
         })
     }
-    
+    //grabs user input for Engineer info
     function createEngineer (){
         inquirer
         .prompt (
