@@ -2,6 +2,8 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const Manager = require("./lib/manager");
+const Engineer = require('./lib/engineer');
+const Intern = require('./lib/intern')
 const renderTeam = require('./src/html-template');
 
 const teamMemberArr = [];
@@ -30,7 +32,7 @@ const init = () => {
             },
             {
                 type: 'input',
-                name: 'officeNum',
+                name: 'officeNumber',
                 message: "What is the manager's Office Number?",
 
             },
@@ -43,7 +45,7 @@ const init = () => {
                 answers.email,
                 answers.officeNumber,
             );
-            teamMemberObjArr.push(manager)
+            teamMemberArr.push(manager)
             addEmployees()
         })
     };
@@ -111,12 +113,12 @@ const init = () => {
         )
         .then(answers => {
             const engineer = new Engineer(
-                answers.id,
                 answers.name,
+                answers.id,
                 answers.email,
                 answers.github,
             );
-            teamMemberObjArr.push(engineer)
+            teamMemberArr.push(engineer)
             addEmployees()
         })
 
@@ -128,7 +130,7 @@ const init = () => {
             [{
                 type: 'input',
                 name: 'id',
-                message: "What is the inters's id?",
+                message: "What is the interns's id?",
 
             },
             {
@@ -152,20 +154,36 @@ const init = () => {
         )
         .then(answers => {
             const intern = new Intern(
-                answers.id,
                 answers.name,
+                answers.id, 
                 answers.email,
                 answers.school,
             );
-            teamMemberObjArr.push(intern)
+            teamMemberArr.push(intern)
             addEmployees()
         })
 
     }
 
 
+
  function buildTeam (){
-    fs.writeFile('./dist/index.html', renderTeam(teamMemberArr), "utf-8")
+    const html = ` <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <title>Document</title>
+    </head>
+    <body>   
+    ${renderTeam(teamMemberArr)}
+    </body>
+    </html>   
+    `
+    fs.writeFile('./dist/index.html', html, (err) =>
+     err ? console.error(err) : console.log("Generating Team Directory...."));
  }
 
 
