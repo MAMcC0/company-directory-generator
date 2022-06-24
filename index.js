@@ -23,7 +23,11 @@ const init = () => {
                 message: "What is the manager's name?",
 
             },
-
+            {
+                type: 'input',
+                name: 'email',
+                message: "What is the manager's email?"
+            },
             {
                 type: 'input',
                 name: 'officeNum',
@@ -67,7 +71,7 @@ const init = () => {
                     createEngineer();
                     break;
                 case 'Intern':
-                    creatIntern();
+                    createIntern();
                     break;
                 default:
                     buildTeam();
@@ -91,6 +95,11 @@ const init = () => {
                 message: "What is the engineer's name?",
 
             },
+            {
+                type: 'input',
+                name: 'email',
+                message: "What is the engineer's email?"
+            },
 
             {
                 type: 'input',
@@ -113,6 +122,48 @@ const init = () => {
 
     }
 
+    function createIntern (){
+        inquirer
+        .prompt (
+            [{
+                type: 'input',
+                name: 'id',
+                message: "What is the inters's id?",
+
+            },
+            {
+                type: 'input',
+                name: 'name',
+                message: "What is the intern's name?",
+
+            },
+            {
+                type: 'input',
+                name: 'email',
+                message: "What is the intern's email?"
+            },
+            {
+                type: 'input',
+                name: 'school',
+                message: "What is the intern's school name?",
+
+            },
+            ]
+        )
+        .then(answers => {
+            const intern = new Intern(
+                answers.id,
+                answers.name,
+                answers.email,
+                answers.school,
+            );
+            teamMemberObjArr.push(intern)
+            addEmployees()
+        })
+
+    }
+
+
  function buildTeam (){
     fs.writeFile('./dist/index.html', renderTeam(teamMemberArr), "utf-8")
  }
@@ -122,3 +173,5 @@ const init = () => {
 
  createManager()
 };
+
+init();
