@@ -14,12 +14,58 @@ const makeTeam = team => {
     </div>
         `
     }
-const html = []
+
+    const generateEngineerCard = engineer => {
+        return `
+        <div class="card shadow mb-5 bg-white rounded" style="width: 18rem;"> 
+        <div class="card-header">
+            ${engineer.name}
+          </div>
+        <ul class="list-group p-4 ">
+          <li class="list-group-item">${engineer.id}</li>
+          <a href="${engineer.github}"><li class="list-group-item">${engineer.github}</li></a>
+          <a href="mailto:${engineer.email}"><li class="list-group-item">${engineer.email}</li></a>
+        </ul>
+    </div>
+        `
+    }
+
+    const generateInternCard = intern => {
+        return `
+        <div class="card shadow mb-5 bg-white rounded" style="width: 18rem;"> 
+        <div class="card-header">
+            ${intern.name}
+          </div>
+        <ul class="list-group p-4 ">
+          <li class="list-group-item">${intern.id}</li>
+          <li class="list-group-item">${intern.school}</li>
+          <a href="mailto:${intern.email}"><li class="list-group-item">${intern.email}</li></a>
+        </ul>
+    </div>
+        `
+    }
+
+
+
+
+
+
+    const html = []
 
 html.push(team
     .filter(employee => employee.getRole() === "Manager")
     .map(manager => generateManagerCard(manager))
     )
+
+html.push(team 
+    .filter(employee => employee.getRole() === "Engineer")
+    .map(engineer => generateEngineerCard(engineer))
+    )
+html.push(team
+    .filter(employee => employee.getRole() === "Intern")
+    .map(intern => generateInternCard(intern))
+)
+
 
  return html.join("")
 }
