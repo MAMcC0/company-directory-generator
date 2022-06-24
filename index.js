@@ -178,10 +178,10 @@ const init = () => {
         <title>Document</title>
     </head>
     <body>   
-    <header class="mx-auto" style="margin-bottom: 100px;">
-
-    </header>
-    <div class="d-flex mt-5 justify-content-center align-items-center position-absolute">
+    <header class="mx-auto p-2">
+    <h1 class="text-center border-bottom p-2 text-light bg-primary">Team Directory</h1>
+  </header>
+    <div class="d-flex justify-content-center align-items-center  w-100" style="height: 100vh;">
     ${renderTeam(teamMemberArr)}
     </div>
     </body>

@@ -3,8 +3,8 @@ const renderTeam = teamMemberArr => {
     
     const generateManagerCard = manager => {
         return `
-        <div class="card shadow mb-5 bg-white rounded" style="width: 18rem;"> 
-        <div class="card-header">
+        <div class="card shadow mb-5 ml-1 bg-white rounded" style="width: 18rem;"> 
+        <div class="card-header bg-primary text-light">
             ${manager.name}
           </div>
         <ul class="list-group p-4 ">
@@ -18,8 +18,8 @@ const renderTeam = teamMemberArr => {
 
     const generateEngineerCard = engineer => {
         return `
-        <div class="card shadow mb-5 bg-white rounded" style="width: 18rem;"> 
-        <div class="card-header">
+        <div class="card shadow mb-5 ml-1 bg-white rounded" style="width: 18rem;"> 
+        <div class="card-header bg-primary text-light">
             ${engineer.name}
           </div>
         <ul class="list-group p-4 ">
@@ -33,8 +33,8 @@ const renderTeam = teamMemberArr => {
 
     const generateInternCard = intern => {
         return `
-        <div class="card shadow mb-5 bg-white rounded" style="width: 18rem;"> 
-        <div class="card-header">
+        <div class="card shadow mb-5 ml-1 bg-white rounded" style="width: 18rem;"> 
+        <div class="card-header bg-primary text-light">
             ${intern.name}
           </div>
         <ul class="list-group p-4 ">
