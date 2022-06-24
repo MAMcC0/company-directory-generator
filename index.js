@@ -40,8 +40,8 @@ const init = () => {
         )
         .then(answers => {
             const manager = new Manager(
-                answers.id,
                 answers.name,
+                answers.id,
                 answers.email,
                 answers.officeNumber,
             );
@@ -178,7 +178,12 @@ const init = () => {
         <title>Document</title>
     </head>
     <body>   
+    <header class="mx-auto" style="margin-bottom: 100px;">
+
+    </header>
+    <div class="d-flex mt-5 justify-content-center align-items-center position-absolute">
     ${renderTeam(teamMemberArr)}
+    </div>
     </body>
     </html>   
     `
