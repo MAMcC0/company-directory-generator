@@ -121,7 +121,7 @@ const init = () => {
         })
 
     }
-
+ // prompts the user to put in input for the intern employee's information
     function createIntern (){
         inquirer
         .prompt (
