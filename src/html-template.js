@@ -24,7 +24,7 @@ const renderTeam = teamMemberArr => {
           </div>
         <ul class="list-group p-4 ">
           <li class="list-group-item">ID: ${engineer.id}</li>
-          <a href="${engineer.github}"><li class="list-group-item">Github: ${engineer.github}</li></a>
+          <a href="${engineer.github}"><li class="list-group-item">${engineer.github}</li></a>
           <a href="mailto:${engineer.email}"><li class="list-group-item">Email: ${engineer.email}</li></a>
         </ul>
     </div>
